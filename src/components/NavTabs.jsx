@@ -29,14 +29,14 @@ export default function NavTabs(props) {
       </li>
       <li className="nav-item">
         <a
-          href="#blog"
-          onClick={() => props.handlePageChange("Blog")}
-          // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
+          href="#Po"
+          onClick={() => props.handlePageChange("Portfolio")}
+          // Check to see if the currentPage is `Portfolio`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
           className={
-            props.currentPage === "Blog" ? "nav-link active" : "nav-link"
+            props.currentPage === "Portfolio" ? "nav-link active" : "nav-link"
           }
         >
-          Blog
+          Portfolio
         </a>
       </li>
       <li className="nav-item">
