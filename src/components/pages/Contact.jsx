@@ -1,20 +1,118 @@
+import React, { useState } from "react";
+import Header from "../Header";
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+  const [validEmail, setEmail] = useState(true);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched({ ...touched, [name]: true });
+    if (name === "email") {
+      setEmail(validEmail(formData.email));
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({ name: "", email: "", message: "" });
+    setTouched({ name: false, email: false, message: false });
+  };
+
+  const validateEmail = (email) => {
+    // Basic email validation
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   return (
-    <div>
-      <h1>Contact Page</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
-    </div>
+    <>
+      <Header></Header>
+      <section id="contact" className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-12">
+            <div className="text-center">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">
+                    Name:
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-control"
+                    required
+                  />
+                  {touched.name && formData.name.trim() === "" && (
+                    <div className="text-danger">Name is required</div>
+                  )}
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email:
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-control"
+                    required
+                  />
+                  {touched.email && !validEmail && (
+                    <div className="text-danger">Invalid email address</div>
+                  )}
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="message" className="form-label">
+                    Message:
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-control"
+                    required
+                  ></textarea>
+                  {touched.message && formData.message.trim() === "" && (
+                    <div className="text-danger">Message is required</div>
+                  )}
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="text-center mt-4">
+          <h5>Feel free to contact me using my email or phone number :)</h5>
+          <p>Phone: (123) 456-7890 email:myemail@gmail.com</p>
+        </div>
+      </section>
+    </>
   );
 }

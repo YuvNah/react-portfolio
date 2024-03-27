@@ -6,12 +6,12 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 
 export default function PortfolioContainer() {
-  const [currentPage, setCurrentPage] = useState("Home");
+  const [currentPage, setCurrentPage] = useState("About");
   console.log(currentPage);
   const renderPage = () => {
-    if (currentPage === "Home") {
-      return <Home />;
-    }
+    // if (currentPage === "Home") {
+    //   return <Home />;
+    // }
     if (currentPage === "About") {
       return <About />;
     }

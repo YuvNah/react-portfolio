@@ -1,4 +1,6 @@
 import Header from "../Header";
+import Footer from "../Footer";
+import bioPic from "../assets/bioPic.jpg";
 
 export default function About() {
   return (
@@ -11,6 +13,8 @@ export default function About() {
         information security and data analysis. This is my portfolio, featuring
         some of the work I have done :)
       </p>
+   <bioPic></bioPic>
+      <Footer></Footer>
     </div>
   );
 }

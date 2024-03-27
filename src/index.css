@@ -55,6 +55,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.nav-item {
+  display: inline;
+  padding: 7px;
+}
+
+.footer-li {
+  display: inline;
+  padding: 7px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

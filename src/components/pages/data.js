@@ -2,12 +2,12 @@ export const portfolioData = [
   {
     id: 1,
     title: "Text Editor",
-    gitrepo: "https://github.com/YuvNah/TextEditor",
+    gitRepo: "https://github.com/YuvNah/TextEditor",
   },
   {
     id: 2,
     title: "Social Network API",
-    gitrepo: "https://github.com/YuvNah/SocialNetworkAPI",
+    gitRepo: "https://github.com/YuvNah/SocialNetworkAPI",
   },
   {
     id: 3,

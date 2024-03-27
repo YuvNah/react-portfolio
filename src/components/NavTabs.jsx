@@ -2,7 +2,7 @@ export default function NavTabs(props) {
   console.log("navTabs", props);
   return (
     <>
-      <li className="nav-item">
+      {/* <li className="nav-item ">
         <a
           href="#home"
           onClick={() => props.handlePageChange("Home")}
@@ -14,7 +14,7 @@ export default function NavTabs(props) {
         >
           Home
         </a>
-      </li>
+      </li> */}
       <li className="nav-item">
         <a
           href="#about"
